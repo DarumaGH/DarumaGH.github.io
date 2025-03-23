@@ -62,7 +62,7 @@ Eine Gruppenabgabe im Rahmen der Hochschule. Es handelt sich um eine Lebenssimul
 
 ---
 
-### 4. **[ongoing] Curse of Lady Evilart**
+### 4. **[ongoing] Curse of Lady Evilart (2025)**
 
 Studioproduktion in meinem 4. Semester. Ein Point-And-Click Puzzle Game mit Fokus auf das Zusammenspiel unterschiedlicher Artstyles innerhalb eines Spiels.
 
