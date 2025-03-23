@@ -17,7 +17,7 @@ Ich bin **Tak Kin Cheung**, ein leidenschaftlicher Spieleentwickler mit Erfahrun
 
 ## Meine Projekte
 
-### 1. **Jonny Jumper**
+### 1. **Jonny Jumper (2024)**
 [Link zu itch.io](https://fetzen.itch.io/jonny-jumper)
 
 Ein in der GMTK Game Jam 2024 entstandenes Puzzle Jump 'n' Run, das ich mit Kommilitonen innerhalb von 4 Tagen entwickelt habe. Ich war hauptsächlich zuständig für die Programmierung und Implementation.
@@ -32,7 +32,7 @@ Ein in der GMTK Game Jam 2024 entstandenes Puzzle Jump 'n' Run, das ich mit Komm
 
 ---
 
-### 2. **Flux**
+### 2. **Flux (2024)**
 [Link zu itch.io](https://daruma4.itch.io/flux)
 
 Ein eigenständiges Projekt von mir, das Spielkonzept von *Mr.Oops!* von PONOS nachzuprogrammieren, wo man Kanonenkugeln und Lasern ausweichen muss.
@@ -41,23 +41,23 @@ Ein eigenständiges Projekt von mir, das Spielkonzept von *Mr.Oops!* von PONOS n
 **USP:** Endlosmodus mit programmierten Patterns  
 
 <p align="center">
-  <img src="images/flux_pic1.jpg" width="30%">
-  <img src="images/flux_pic2.jpg" width="30%">
+  <img src="images/flux_pic1.jpg" width="25%">
+  <img src="images/flux_pic2.jpg" width="25%">
 </p>
 
 ---
 
-### 3. **Nett hier. But have you ever played a Swabian Simulation?**
+### 3. **Nett hier. But have you ever played a Swabian Simulation? (2025)**
 [Link zu itch.io](https://daruma4.itch.io/nett-hier)
 
-Eine Gruppenabgabe an der Hochschule. Es handelt sich um eine Lebenssimulation mit dem Ziel, so viel Geld wie möglich am Ende angespart zu haben. Hier war ich für das Game Design, Programmierung und Sound zuständig.
+Eine Gruppenabgabe im Rahmen der Hochschule. Es handelt sich um eine Lebenssimulation mit dem Ziel, so viel Geld wie möglich am Ende angespart zu haben. Hier war ich für das Game Design, Programmierung und Sound zuständig.
 
 **Engine:** Godot 4.3  
 **USP:** Viele Interaktionsmöglichkeiten auf einer großen Overworld  
 
 <p align="center">
-  <img src="images/netthier_pic1.jpg" width="45%">
-  <img src="images/netthier_pic2.jpg" width="45%">
+  <img src="images/netthier_pic1.png" width="45%">
+  <img src="images/netthier_pic2.png" width="45%">
 </p>
 
 ---
