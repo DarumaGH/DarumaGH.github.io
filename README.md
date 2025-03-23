@@ -56,8 +56,8 @@ Eine Gruppenabgabe an der Hochschule. Es handelt sich um eine Lebenssimulation m
 **USP:** Viele Interaktionsmöglichkeiten auf einer großen Overworld  
 
 <p align="center">
-  <img src="images/nett1.png" width="45%">
-  <img src="images/nett2.png" width="45%">
+  <img src="images/netthier_pic1.jpg" width="45%">
+  <img src="images/netthier_pic2.jpg" width="45%">
 </p>
 
 ---
@@ -68,11 +68,6 @@ Studioproduktion in meinem 4. Semester. Ein Point-And-Click Puzzle Game mit Foku
 
 **Engine:** Godot 4.4  
 **USP:** Verschmelzung unterschiedlicher Artstyles  
-
-<p align="center">
-  <img src="images/evilart1.png" width="45%">
-  <img src="images/evilart2.png" width="45%">
-</p>
 
 ---
 
