@@ -41,8 +41,8 @@ Ein eigenständiges Projekt von mir, das Spielkonzept von *Mr.Oops!* von PONOS n
 **USP:** Endlosmodus mit programmierten Patterns  
 
 <p align="center">
-  <img src="images/flux_pic1.jpg" width="45%">
-  <img src="images/flux_pic2.jpg" width="45%">
+  <img src="images/flux_pic1.png">
+  <img src="images/flux_pic2.png">
 </p>
 
 ---
