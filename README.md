@@ -26,8 +26,8 @@ Ein in der GMTK Game Jam 2024 entstandenes Puzzle Jump 'n' Run, das ich mit Komm
 **USP:** Skalierbare Blöcke, die man selber platziert, um das Level zu schaffen  
 
 <p align="center">
-  <img src="images/minimalist-black-bird-silhouette_53876-476835.jpg" width="45%">
-  <img src="images/jonny2.png" width="45%">
+  <img src="images/jj_pic1.jpg" width="45%">
+  <img src="images/jj_pic2.jpg" width="45%">
 </p>
 
 ---
@@ -41,8 +41,8 @@ Ein eigenständiges Projekt von mir, das Spielkonzept von *Mr.Oops!* von PONOS n
 **USP:** Endlosmodus mit programmierten Patterns  
 
 <p align="center">
-  <img src="images/flux1.png" width="45%">
-  <img src="images/flux2.png" width="45%">
+  <img src="images/flux_pic1.jpg" width="45%">
+  <img src="images/flux_pic2.jpg" width="45%">
 </p>
 
 ---
