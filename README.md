@@ -1,4 +1,4 @@
-# Tak Kin Cheung - Portfolio
+# Portfolio
 
 Willkommen auf meinem Portfolio! Ich bin ein **Medienstudent** mit Fokus auf **Game Development**. Hier zeige ich meine Projekte, Erfahrungen und Fähigkeiten in der Spieleentwicklung.
 
@@ -40,6 +40,13 @@ Eine Gruppenabgabe an der Hochschule. Es handelt es sich um eine Lebenssimulatio
 
 - **Engine:** Godot 4.3
 - **USP:** viele Interaktionsmöglichkeiten auf einer großen Overworld
+
+### 4. **[ongoing] Curse of Lady Evilart**
+
+Studioproduktion in meinem 4. Semester. Ein Point-And-Click Puzzle Game mit Fokus auf das Zusammenspiel unterschiedlicher Artstyles innerhalb eines Spiels.
+
+- **Engine:** Godot 4.4
+- **USP:** Verschmelzung unterschiedlicher Artstyles
 
 ---
 
