@@ -1,6 +1,6 @@
 # Portfolio
 
-Willkommen auf meinem Portfolio! Ich bin ein **Medienstudent** mit Fokus auf **Game Development**. Hier zeige ich meine Projekte, Erfahrungen und Fähigkeiten in der Spieleentwicklung.
+Willkommen auf meinem Portfolio! Ich bin **Medienstudent** mit Fokus auf **Game Development**. Hier zeige ich meine Projekte, Erfahrungen und Fähigkeiten in der Spieleentwicklung.
 
 ---
 
@@ -53,6 +53,7 @@ Studioproduktion in meinem 4. Semester. Ein Point-And-Click Puzzle Game mit Foku
 ## Kontakt
 
 - **E-Mail:** cheungtkn@gmail.com
+  
 ---
 
 **Ich freue mich auf jede Gelegenheit, mit anderen kreativen Entwicklern und Game Studios zusammenzuarbeiten!**
