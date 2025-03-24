@@ -23,7 +23,7 @@ Ich bin **Tak Kin Cheung**, ein leidenschaftlicher Spieleentwickler mit Erfahrun
 Ein in der GMTK Game Jam 2024 entstandenes Puzzle Jump 'n' Run, das ich mit Kommilitonen innerhalb von 4 Tagen entwickelt habe. Ich war hauptsächlich zuständig für die Programmierung und Implementation.
 
 **Engine:** Godot 4.3  
-**USP:** Skalierbare Blöcke, die man selber platziert, um das Level zu schaffen  
+**USP:** Skalierbare Blöcke, die man selbst platziert, um das Level zu schaffen  
 
 <p align="center">
   <img src="images/jj_pic2.jpg">
