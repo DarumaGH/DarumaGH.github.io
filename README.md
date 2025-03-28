@@ -11,7 +11,7 @@ Ich bin **Tak Kin Cheung**, ein leidenschaftlicher Spieleentwickler mit Erfahrun
 **Schwerpunkte:**
 - **Programmiersprachen:** Java, Python, GDScript  
 - **Game Engines:** Godot Engine  
-- **Tools:** Git, Figma  
+- **Tools:** Git, Trello  
 
 ---
 
