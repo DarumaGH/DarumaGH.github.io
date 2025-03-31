@@ -33,7 +33,7 @@ Ein in der GMTK Game Jam 2024 entstandenes Puzzle Jump 'n' Run, das ich mit Komm
 ---
 
 ### 2. **Flux (2024)**
-[Link zu itch.io](https://daruma4.itch.io/flux)
+[Link zu itch.io](https://daruma4.itch.io/flux) (Passwort: 1234)
 
 Ein eigenständiges Projekt von mir, das Spielkonzept von *Mr.Oops!* von PONOS nachzuprogrammieren, wo man Kanonenkugeln und Lasern ausweichen muss.
 
@@ -48,7 +48,7 @@ Ein eigenständiges Projekt von mir, das Spielkonzept von *Mr.Oops!* von PONOS n
 ---
 
 ### 3. **Nett hier. But have you ever played a Swabian Simulation? (2025)**
-[Link zu itch.io](https://daruma4.itch.io/nett-hier)
+[Link zu itch.io](https://daruma4.itch.io/nett-hier) (Passwort: 1234)
 
 Eine Gruppenabgabe im Rahmen der Hochschule. Es handelt sich um eine Lebenssimulation mit dem Ziel, so viel Geld wie möglich am Ende angespart zu haben. Hier war ich für das Game Design, Programmierung und Sound zuständig.
 
