@@ -6,7 +6,7 @@ Willkommen auf meinem Portfolio! Ich bin **Medienstudent** mit Fokus auf **Game 
 
 ## Über mich
 
-Ich bin **Tak Kin Cheung**, ein leidenschaftlicher Spieleentwickler mit Erfahrung in der Programmierung in Java, Python und GDScript. Derzeit studiere ich **Audiovisuelle Medien** im 4. Semester an der **Hochschule der Medien Stuttgart**, wo ich mich im Bereich **Interaktive Medien** spezialisiere.
+Ich bin **Tak-Kin Cheung**, ein leidenschaftlicher Spieleentwickler mit Erfahrung in der Programmierung in Java, Python und GDScript. Derzeit studiere ich **Audiovisuelle Medien** im 4. Semester an der **Hochschule der Medien Stuttgart**, wo ich mich im Bereich **Interaktive Medien** spezialisiere.
 
 **Schwerpunkte:**
 - **Programmiersprachen:** Java, Python, GDScript  
