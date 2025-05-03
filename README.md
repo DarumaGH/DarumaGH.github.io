@@ -66,6 +66,11 @@ Eine Gruppenabgabe im Rahmen der Hochschule. Es handelt sich um eine Lebenssimul
 
 Studioproduktion in meinem 4. Semester. Ein Point-And-Click Puzzle Game mit Fokus auf das Zusammenspiel unterschiedlicher Artstyles innerhalb eines Spiels.
 
+<p align="center">
+  <img src="images/cole_pic1.png">
+  <img src="images/cole_pic2.png">
+</p>
+
 **Engine:** Godot 4.4  
 **USP:** Verschmelzung unterschiedlicher Artstyles  
 
