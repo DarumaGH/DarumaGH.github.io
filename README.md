@@ -18,7 +18,7 @@ Ich bin **Tak-Kin Cheung**, ein leidenschaftlicher Spieleentwickler mit Erfahrun
 ## Meine Projekte
 
 ### 1. **Jonny Jumper (2024)**
-<a href="https://fetzen.itch.io/jonny-jumper" target="_blank" rel="noopener noreferrer">Link zu itch.io</a>
+<a href="https://fetzen.itch.io/jonny-jumper" target="_blank">Link zu itch.io</a>
 
 Ein in der GMTK Game Jam 2024 entstandenes Puzzle Jump 'n' Run, das ich mit Kommilitonen innerhalb von 4 Tagen entwickelt habe. Ich war hauptsächlich zuständig für die Programmierung und Implementation.
 
