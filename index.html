@@ -8,6 +8,7 @@
     <link rel="icon" href="images/icon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
+      /* Light mode (default) variables */
       :root {
         --primary-color: #2883bf;
         --primary-dark: #1e6a9c;
@@ -19,6 +20,20 @@
         --border-color: #e0e0e0;
       }
       
+      /* Dark mode variables - activated via media query */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --primary-color: #3498db;
+          --primary-dark: #5dade2;
+          --secondary-color: #f39c12;
+          --text-color: #e0e0e0;
+          --bg-color: #121212;
+          --card-bg: #1e1e1e;
+          --hover-color: #2c3e50;
+          --border-color: #333333;
+        }
+      }
+      
       body {
         font-family: "Segoe UI", Roboto, Oxygen, Ubuntu, "Open Sans", "Helvetica Neue", sans-serif;
         line-height: 1.7;
@@ -26,6 +41,7 @@
         background-color: var(--bg-color);
         margin: 0;
         padding: 0;
+        transition: background-color 0.3s ease, color 0.3s ease;
       }
       
       .wrapper {
@@ -44,6 +60,7 @@
         border-right: 1px solid var(--border-color);
         z-index: 100;
         box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+        transition: background-color 0.3s ease, border-color 0.3s ease;
       }
       
       section {
@@ -158,7 +175,7 @@
         padding: 30px;
         margin-bottom: 30px;
         box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
         border-top: 4px solid var(--primary-color);
       }
       
@@ -180,11 +197,26 @@
         margin-bottom: 10px;
         font-size: 14px;
         border: 1px solid rgba(52, 152, 219, 0.2);
+        transition: background-color 0.3s ease, border-color 0.3s ease;
+      }
+      
+      @media (prefers-color-scheme: dark) {
+        .project-meta {
+          background: rgba(52, 152, 219, 0.2);
+          border: 1px solid rgba(52, 152, 219, 0.3);
+        }
       }
       
       .software-project .project-meta {
         background: rgba(241, 196, 15, 0.1);
         border: 1px solid rgba(241, 196, 15, 0.2);
+      }
+      
+      @media (prefers-color-scheme: dark) {
+        .software-project .project-meta {
+          background: rgba(241, 196, 15, 0.2);
+          border: 1px solid rgba(241, 196, 15, 0.3);
+        }
       }
       
       .project-meta i {
@@ -216,6 +248,7 @@
         padding: 30px;
         margin-bottom: 30px;
         box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        transition: background-color 0.3s ease;
       }
       
       .skill-list {
@@ -234,9 +267,22 @@
         border: 1px solid rgba(52, 152, 219, 0.2);
       }
       
+      @media (prefers-color-scheme: dark) {
+        .skill-tag {
+          background: rgba(52, 152, 219, 0.2);
+          border: 1px solid rgba(52, 152, 219, 0.3);
+        }
+      }
+      
       .skill-tag:hover {
         background: rgba(52, 152, 219, 0.2);
         transform: translateY(-2px);
+      }
+      
+      @media (prefers-color-scheme: dark) {
+        .skill-tag:hover {
+          background: rgba(52, 152, 219, 0.3);
+        }
       }
       
       .contact-info {
@@ -245,6 +291,7 @@
         padding: 20px;
         border-radius: 8px;
         box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        transition: background-color 0.3s ease;
       }
       
       .contact-info i {
@@ -545,6 +592,23 @@
     </div>
     
     <script>
+      // Check for dark mode preference and add class to body
+      function checkDarkMode() {
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.body.classList.add('dark-mode');
+        } else {
+          document.body.classList.remove('dark-mode');
+        }
+      }
+      
+      // Run on page load
+      checkDarkMode();
+      
+      // Listen for changes in color scheme preference
+      if (window.matchMedia) {
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', checkDarkMode);
+      }
+      
       // Function to show the selected category and hide others
       function showCategory(categoryId) {
         // Hide all category sections
