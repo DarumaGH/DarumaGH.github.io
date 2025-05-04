@@ -1,6 +1,6 @@
 # Portfolio
 
-Willkommen auf meinem Portfolio! Ich bin **Medienstudent** mit Fokus auf **Game Development**. Hier zeige ich meine Projekte, Erfahrungen und Fähigkeiten in der Spieleentwicklung.
+Willkommen auf meinem Portfolio! Ich bin **Medienstudent** mit Fokus auf **Game Development**. Hier zeige ich meine Projekte, Erfahrungen und Fähigkeiten in der Spieleentwicklung und Softwareentwicklung.
 
 ---
 
@@ -17,7 +17,9 @@ Ich bin **Tak-Kin Cheung**, ein leidenschaftlicher Spieleentwickler mit Erfahrun
 
 ## Meine Projekte
 
-### 1. **Jonny Jumper (2024)**
+### Games
+
+#### 1. **Jonny Jumper (2024)**
 <a href="https://fetzen.itch.io/jonny-jumper" target="_blank" rel="noopener noreferrer">Link zu itch.io</a>
 
 Ein in der GMTK Game Jam 2024 entstandenes Puzzle Jump 'n' Run, das ich mit Kommilitonen innerhalb von 4 Tagen entwickelt habe. Ich war hauptsächlich zuständig für die Programmierung und Implementation.
@@ -32,7 +34,7 @@ Ein in der GMTK Game Jam 2024 entstandenes Puzzle Jump 'n' Run, das ich mit Komm
 
 ---
 
-### 2. **Flux (2024)**
+#### 2. **Flux (2024)**
 <a href="https://daruma4.itch.io/flux" target="_blank" rel="noopener noreferrer">Link zu itch.io</a> (Passwort: 1234)
 
 Ein eigenständiges Projekt von mir, das Spielkonzept von *Mr.Oops!* von PONOS nachzuprogrammieren, wo man Kanonenkugeln und Lasern ausweichen muss.
@@ -47,7 +49,7 @@ Ein eigenständiges Projekt von mir, das Spielkonzept von *Mr.Oops!* von PONOS n
 
 ---
 
-### 3. **Nett hier. But have you ever played a Swabian Simulation? (2025)**
+#### 3. **Nett hier. But have you ever played a Swabian Simulation? (2025)**
 <a href="https://daruma4.itch.io/nett-hier" target="_blank" rel="noopener noreferrer">Link zu itch.io</a>
 
 Eine Gruppenabgabe im Rahmen der Hochschule. Es handelt sich um eine Lebenssimulation mit dem Ziel, so viel Geld wie möglich am Ende angespart zu haben. Hier war ich für das Game Design, Programmierung und Sound zuständig.
@@ -62,7 +64,7 @@ Eine Gruppenabgabe im Rahmen der Hochschule. Es handelt sich um eine Lebenssimul
 
 ---
 
-### 4. **[ongoing] Curse of Lady Evilart (2025)**
+#### 4. **[ongoing] Curse of Lady Evilart (2025)**
 
 Studioproduktion in meinem 4. Semester. Ein Point-And-Click Puzzle Game mit Fokus auf das Zusammenspiel unterschiedlicher Artstyles innerhalb eines Spiels.
 
@@ -74,6 +76,12 @@ Studioproduktion in meinem 4. Semester. Ein Point-And-Click Puzzle Game mit Foku
   <img src="images/cole_pic1.png">
   <img src="images/cole_pic2.png">
 </p>
+
+---
+
+### Other Software
+
+*Derzeit keine Software-Projekte vorhanden. Dieser Bereich wird in Zukunft mit Nicht-Spiel-Projekten gefüllt.*
 
 ---
 
