@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dennis Tak-Kin Cheung - Game Developer Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background-color: #f8f8f8;
+        margin: 0;
+        padding: 0;
+      }
+      
+      .wrapper {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+      }
+      
+      header {
+        width: 270px;
+        padding: 30px;
+        position: fixed;
+        background-color: #f8f8f8;
+        height: 100vh;
+        border-right: 1px solid #e0e0e0;
+      }
+      
+      section {
+        width: calc(100% - 330px);
+        margin-left: 330px;
+        padding: 40px;
+      }
+      
+      h1 {
+        margin: 0 0 20px;
+        font-size: 28px;
+      }
+      
+      h2 {
+        margin-top: 30px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #eaeaea;
+        color: #333;
+      }
+      
+      h3 {
+        margin-top: 25px;
+        color: #555;
+      }
+      
+      a {
+        color: #1e88e5;
+        text-decoration: none;
+      }
+      
+      a:hover {
+        text-decoration: underline;
+        color: #0d47a1;
+      }
+      
+      img {
+        max-width: 100%;
+        border-radius: 6px;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16);
+      }
+      
+      .project-images {
+        display: flex;
+        gap: 15px;
+        margin-top: 15px;
+        flex-wrap: wrap;
+      }
+      
+      .project-images img {
+        max-width: calc(50% - 8px);
+        height: auto;
+      }
+      
+      footer {
+        margin-top: 50px;
+        padding-top: 20px;
+        border-top: 1px solid #eaeaea;
+        font-size: 14px;
+        color: #777;
+      }
+      
+      .categories {
+        margin: 30px 0;
+      }
+      
+      .category-button {
+        display: block;
+        padding: 12px 15px;
+        margin-bottom: 10px;
+        background-color: #e0e0e0;
+        border-radius: 5px;
+        text-align: center;
+        transition: all 0.3s;
+        cursor: pointer;
+      }
+      
+      .category-button:hover {
+        background-color: #d0d0d0;
+        text-decoration: none;
+      }
+      
+      .category-button.active {
+        background-color: #1e88e5;
+        color: white;
+      }
+      
+      .project {
+        background: white;
+        border-radius: 8px;
+        padding: 25px;
+        margin-bottom: 30px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      }
+      
+      .project-meta {
+        display: inline-block;
+        background: #f0f0f0;
+        padding: 5px 10px;
+        border-radius: 4px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        font-size: 14px;
+      }
+      
+      .project-meta i {
+        margin-right: 5px;
+        color: #666;
+      }
+      
+      .category-section {
+        display: none;
+      }
+      
+      .category-section.active {
+        display: block;
+      }
+      
+      .about-section {
+        background: white;
+        border-radius: 8px;
+        padding: 25px;
+        margin-bottom: 30px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      }
+      
+      .skill-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 15px;
+      }
+      
+      .skill-tag {
+        background: #e3f2fd;
+        padding: 5px 12px;
+        border-radius: 4px;
+        font-size: 14px;
+      }
+      
+      .contact-info {
+        margin-top: 20px;
+      }
+      
+      .contact-info i {
+        width: 20px;
+        text-align: center;
+        margin-right: 10px;
+        color: #555;
+      }
+      
+      @media (max-width: 800px) {
+        .wrapper {
+          flex-direction: column;
+        }
+        
+        header {
+          width: 100%;
+          height: auto;
+          position: relative;
+          padding: 20px;
+        }
+        
+        section {
+          width: 100%;
+          margin-left: 0;
+          padding: 20px;
+        }
+        
+        .project-images img {
+          max-width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Dennis Tak-Kin Cheung</h1>
+        <p>Medienstudent mit Schwerpunkt Game Development</p>
+        
+        <div class="categories">
+          <a href="#about" class="category-button" onclick="showCategory('about'); return false;">
+            <i class="fas fa-user"></i> Über mich
+          </a>
+          <a href="#games" class="category-button" onclick="showCategory('games'); return false;">
+            <i class="fas fa-gamepad"></i> Games
+          </a>
+          <a href="#software" class="category-button" onclick="showCategory('software'); return false;">
+            <i class="fas fa-laptop-code"></i> Other Software
+          </a>
+          <a href="#contact" class="category-button" onclick="showCategory('contact'); return false;">
+            <i class="fas fa-envelope"></i> Kontakt
+          </a>
+        </div>
+        
+        <div class="contact-info">
+          <p><i class="far fa-envelope"></i> cheungtkn@gmail.com</p>
+        </div>
+      </header>
+      
+      <section>
+        <div id="about" class="category-section active">
+          <div class="about-section">
+            <h2>Über mich</h2>
+            <p>Ich bin <strong>Tak-Kin Cheung</strong>, ein leidenschaftlicher Spieleentwickler mit Erfahrung in der Programmierung in Java, Python und GDScript. Derzeit studiere ich <strong>Audiovisuelle Medien</strong> im 4. Semester an der <strong>Hochschule der Medien Stuttgart</strong>, wo ich mich im Bereich <strong>Interaktive Medien</strong> spezialisiere.</p>
+            
+            <h3>Schwerpunkte:</h3>
+            <div class="skill-list">
+              <span class="skill-tag"><i class="fas fa-code"></i> Java</span>
+              <span class="skill-tag"><i class="fas fa-code"></i> Python</span>
+              <span class="skill-tag"><i class="fas fa-code"></i> GDScript</span>
+              <span class="skill-tag"><i class="fas fa-gamepad"></i> Godot Engine</span>
+              <span class="skill-tag"><i class="fas fa-code-branch"></i> Git</span>
+              <span class="skill-tag"><i class="fas fa-tasks"></i> Trello</span>
+            </div>
+          </div>
+          
+          <p><strong>Ich freue mich auf jede Gelegenheit, mit anderen kreativen Entwicklern und Game Studios zusammenzuarbeiten!</strong></p>
+        </div>
+        
+        <div id="games" class="category-section">
+          <h2>Games</h2>
+          
+          <div class="project">
+            <h3>Jonny Jumper (2024)</h3>
+            <a href="https://fetzen.itch.io/jonny-jumper" target="_blank" rel="noopener noreferrer">Link zu itch.io</a>
+            
+            <p>Ein in der GMTK Game Jam 2024 entstandenes Puzzle Jump 'n' Run, das ich mit Kommilitonen innerhalb von 4 Tagen entwickelt habe. Ich war hauptsächlich zuständig für die Programmierung und Implementation.</p>
+            
+            <div class="project-meta"><i class="fas fa-cogs"></i> Engine: Godot 4.3</div>
+            <div class="project-meta"><i class="fas fa-lightbulb"></i> USP: Skalierbare Blöcke, die man selbst platziert, um das Level zu schaffen</div>
+            
+            <div class="project-images">
+              <img src="images/jj_pic2.jpg" alt="Jonny Jumper Screenshot 1">
+              <img src="images/jj_pic1.jpg" alt="Jonny Jumper Screenshot 2">
+            </div>
+          </div>
+          
+          <div class="project">
+            <h3>Flux (2024)</h3>
+            <a href="https://daruma4.itch.io/flux" target="_blank" rel="noopener noreferrer">Link zu itch.io</a> (Passwort: 1234)
+            
+            <p>Ein eigenständiges Projekt von mir, das Spielkonzept von <em>Mr.Oops!</em> von PONOS nachzuprogrammieren, wo man Kanonenkugeln und Lasern ausweichen muss.</p>
+            
+            <div class="project-meta"><i class="fas fa-cogs"></i> Engine: Godot 4.3</div>
+            <div class="project-meta"><i class="fas fa-lightbulb"></i> USP: Endlosmodus mit programmierten Patterns</div>
+            
+            <div class="project-images">
+              <img src="images/flux_pic1.png" alt="Flux Screenshot 1">
+              <img src="images/flux_pic2.png" alt="Flux Screenshot 2">
+            </div>
+          </div>
+          
+          <div class="project">
+            <h3>Nett hier. But have you ever played a Swabian Simulation? (2025)</h3>
+            <a href="https://daruma4.itch.io/nett-hier" target="_blank" rel="noopener noreferrer">Link zu itch.io</a>
+            
+            <p>Eine Gruppenabgabe im Rahmen der Hochschule. Es handelt sich um eine Lebenssimulation mit dem Ziel, so viel Geld wie möglich am Ende angespart zu haben. Hier war ich für das Game Design, Programmierung und Sound zuständig.</p>
+            
+            <div class="project-meta"><i class="fas fa-cogs"></i> Engine: Godot 4.3</div>
+            <div class="project-meta"><i class="fas fa-lightbulb"></i> USP: Viele Interaktionsmöglichkeiten auf einer großen Overworld</div>
+            
+            <div class="project-images">
+              <img src="images/netthier_pic1.png" alt="Nett hier Screenshot 1">
+              <img src="images/netthier_pic2.png" alt="Nett hier Screenshot 2">
+            </div>
+          </div>
+          
+          <div class="project">
+            <h3>[ongoing] Curse of Lady Evilart (2025)</h3>
+            
+            <p>Studioproduktion in meinem 4. Semester. Ein Point-And-Click Puzzle Game mit Fokus auf das Zusammenspiel unterschiedlicher Artstyles innerhalb eines Spiels.</p>
+            
+            <div class="project-meta"><i class="fas fa-cogs"></i> Engine: Godot 4.4</div>
+            <div class="project-meta"><i class="fas fa-lightbulb"></i> USP: Verschmelzung unterschiedlicher Artstyles</div>
+            
+            <div class="project-images">
+              <img src="images/cole_pic1.png" alt="Curse of Lady Evilart Screenshot 1">
+              <img src="images/cole_pic2.png" alt="Curse of Lady Evilart Screenshot 2">
+            </div>
+          </div>
+        </div>
+        
+        <div id="software" class="category-section">
+          <h2>Other Software</h2>
+          <p>In diesem Bereich werden Ihre Software-Projekte angezeigt, die keine Spiele sind. Fügen Sie Ihre Softwareprojekte hier hinzu.</p>
+          
+          <!-- Hier können weitere Software-Projekte hinzugefügt werden, sobald vorhanden -->
+          <div class="project">
+            <p>Derzeit keine Software-Projekte vorhanden. Schauen Sie später wieder vorbei!</p>
+          </div>
+        </div>
+        
+        <div id="contact" class="category-section">
+          <h2>Kontakt</h2>
+          <div class="about-section">
+            <p>Haben Sie Interesse an einer Zusammenarbeit oder Fragen zu meinen Projekten? Kontaktieren Sie mich gerne:</p>
+            
+            <ul>
+              <li><strong>E-Mail:</strong> cheungtkn@gmail.com</li>
+            </ul>
+          </div>
+        </div>
+        
+        <footer>
+          <p><small>© 2025 Dennis Tak-Kin Cheung</small></p>
+        </footer>
+      </section>
+    </div>
+    
+    <script>
+      // Function to show the selected category and hide others
+      function showCategory(categoryId) {
+        // Hide all category sections
+        const categorySections = document.querySelectorAll('.category-section');
+        categorySections.forEach(section => {
+          section.classList.remove('active');
+        });
+        
+        // Show the selected category section
+        document.getElementById(categoryId).classList.add('active');
+        
+        // Update active state on buttons
+        const categoryButtons = document.querySelectorAll('.category-button');
+        categoryButtons.forEach(button => {
+          button.classList.remove('active');
+          if (button.getAttribute('href') === '#' + categoryId) {
+            button.classList.add('active');
+          }
+        });
+      }
+      
+      // Set the first category as active by default
+      document.addEventListener('DOMContentLoaded', function() {
+        const firstCategoryButton = document.querySelector('.category-button');
+        if (firstCategoryButton) {
+          firstCategoryButton.classList.add('active');
+        }
+      });
+    </script>
+  </body>
+</html>
