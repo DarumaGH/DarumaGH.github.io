@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }}</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1><a href="{{ "/" | absolute_url }}">{{ site.title }}</a></h1>
+        <p>{{ site.description }}</p>
+        <nav>
+          <a href="{{ '/games/' | relative_url }}">Games</a> |
+          <a href="{{ '/other-software/' | relative_url }}">Other Software</a>
+        </nav>
+      </header>
+      <section>
+        {{ content }}
+      </section>
+      <footer>
+        <p><small>Hosted on GitHub Pages</small></p>
+      </footer>
+    </div>
+  </body>
+</html>
