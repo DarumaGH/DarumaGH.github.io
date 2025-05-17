@@ -1,6 +1,6 @@
 # Portfolio
 
-Welcome to my portfolio! I'm a **Media Student** focusing on **Game Development**. Here I showcase my projects, experiences, and skills in game development and software engineering.
+Welcome to my portfolio! I'm a **Media Student** focusing on **Software Development**. Here I showcase my projects, experiences, and skills in game development and software engineering.
 
 ---
 
