@@ -1,19 +1,21 @@
+
 <!DOCTYPE html>
+
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dennis Tak-Kin Cheung - Developer Portfolio</title>
-    <link rel="icon" href="images/Papirus-Team-Papirus-Places-Folder-blue-image-people.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Dennis Tak-Kin Cheung - Developer Portfolio</title>
+<link href="images/Papirus-Team-Papirus-Places-Folder-blue-image-people.ico" rel="icon" type="image/x-icon"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
       /* CSS Variables for Light/Dark Mode */
       :root {
-        --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        --primary-color: #667eea;
-        --primary-dark: #5a67d8;
+        --primary-gradient: linear-gradient(135deg, #2883bf 0%, #3498db 100%);
+        --primary-color: #2883bf;
+        --primary-dark: #1e6a9c;
         --secondary-color: #f093fb;
         --accent-color: #4facfe;
         --text-primary: #2d3748;
@@ -33,7 +35,7 @@
       
       @media (prefers-color-scheme: dark) {
         :root {
-          --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          --primary-gradient: linear-gradient(135deg, #2883bf 0%, #3498db 100%);
           --primary-color: #7c3aed;
           --primary-dark: #8b5cf6;
           --secondary-color: #f093fb;
@@ -290,11 +292,11 @@
       }
       
       .skill-item:hover {
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-md);
-        background: var(--primary-gradient);
-        color: white;
-        border-color: transparent;
+        transform: none;
+        box-shadow: none;
+        background: var(--bg-secondary);
+        color: inherit;
+        border-color: var(--border-color);
       }
       
       .skill-item i {
@@ -397,11 +399,13 @@
       
       .project-image {
         width: 100%;
-        height: 200px;
-        object-fit: cover;
+        height: auto;
+        max-height: 400px;
+        object-fit: contain;
         border-radius: 8px;
         cursor: pointer;
         transition: var(--transition);
+        background-color: var(--bg-tertiary);
       }
       
       .project-image:hover {
@@ -614,371 +618,251 @@
         }
       }
     </style>
-  </head>
-  <body>
-    <div class="container">
-      <!-- Sidebar -->
-      <aside class="sidebar">
-        <div class="profile-section">
-          <div class="profile-pic">
-            <img src="/api/placeholder/120/120" alt="Dennis Tak-Kin Cheung">
-          </div>
-          <div>
-            <h1 class="name">Dennis Tak-Kin Cheung</h1>
-            <p class="title">Software Developer & Interactive Media Specialist</p>
-          </div>
-        </div>
-        
-        <nav>
-          <ul class="nav-menu">
-            <li class="nav-item">
-              <a href="#about" class="nav-link active" data-section="about">
-                <i class="fas fa-user"></i>
-                <span>About Me</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="#games" class="nav-link" data-section="games">
-                <i class="fas fa-gamepad"></i>
-                <span>Games</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="#software" class="nav-link" data-section="software">
-                <i class="fas fa-laptop-code"></i>
-                <span>Other Software</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="#contact" class="nav-link" data-section="contact">
-                <i class="fas fa-envelope"></i>
-                <span>Contact</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </aside>
-      
-      <!-- Main Content -->
-      <main class="main-content">
-        <!-- About Section -->
-        <section id="about" class="section active">
-          <h2 class="section-title">About Me</h2>
-          <p class="section-subtitle">Passionate software developer specializing in interactive media and game development</p>
-          
-          <div class="about-content">
-            <div class="intro-text">
-              <p>Hello! I'm <strong>Dennis Tak-Kin Cheung</strong>, a passionate software developer from Germany. I'm currently in my 4th semester studying <strong>Audiovisual Media</strong> at <strong>Stuttgart Media University</strong>, where I specialize in <strong>Interactive Media</strong>.</p>
-              
-              <p>My journey in software development combines technical expertise with creative problem-solving. I enjoy creating engaging interactive experiences, from games to practical applications, always focusing on clean code and user-centered design.</p>
-            </div>
-            
-            <div class="skills-section">
-              <h3 class="skills-title">Technical Skills</h3>
-              <div class="skills-grid">
-                <div class="skill-item">
-                  <i class="fab fa-java"></i>
-                  <span>Java</span>
-                </div>
-                <div class="skill-item">
-                  <i class="fab fa-python"></i>
-                  <span>Python</span>
-                </div>
-                <div class="skill-item">
-                  <i class="fas fa-code"></i>
-                  <span>GDScript</span>
-                </div>
-                <div class="skill-item">
-                  <i class="fas fa-gamepad"></i>
-                  <span>Godot Engine</span>
-                </div>
-                <div class="skill-item">
-                  <i class="fab fa-git-alt"></i>
-                  <span>Git</span>
-                </div>
-                <div class="skill-item">
-                  <i class="fas fa-hashtag"></i>
-                  <span>C#</span>
-                </div>
-              </div>
-            </div>
-            
-            <div class="cta-section">
-              <p class="cta-text">Ready to collaborate on your next project? Let's create something amazing together!</p>
-            </div>
-          </div>
-        </section>
-        
-        <!-- Games Section -->
-        <section id="games" class="section">
-          <h2 class="section-title">Games</h2>
-          <p class="section-subtitle">Interactive experiences and game development projects</p>
-          
-          <div class="projects-grid">
-            <article class="project-card">
-              <div class="project-header">
-                <h3 class="project-title">[Ongoing] Curse of Lady Evilart (2025)</h3>
-                <p class="project-description">
-                  Studio production in my 4th semester. A point-and-click puzzle adventure focusing on the interplay of different art styles within a single game. This project explores how various artistic approaches can coexist and enhance narrative storytelling.
-                </p>
-                
-                <div class="project-meta">
-                  <span class="meta-tag">
-                    <i class="fas fa-cogs"></i>
-                    Godot 4.4
-                  </span>
-                  <span class="meta-tag">
-                    <i class="fas fa-palette"></i>
-                    Art Style Innovation
-                  </span>
-                  <span class="meta-tag">
-                    <i class="fas fa-puzzle-piece"></i>
-                    Point & Click Adventure
-                  </span>
-                </div>
-              </div>
-              
-              <div class="project-images">
-                <img src="images/cole_pic1.png" alt="Curse of Lady Evilart Screenshot 1" class="project-image">
-                <img src="images/cole_pic2.png" alt="Curse of Lady Evilart Screenshot 2" class="project-image">
-              </div>
-            </article>
+</head>
+<body>
+<div class="container">
+<!-- Sidebar -->
+<aside class="sidebar">
+<div class="profile-section">
+<div class="profile-pic">
+<img alt="Dennis Tak-Kin Cheung" src="/api/placeholder/120/120"/>
+</div>
+<div>
+<h1 class="name">Dennis Tak-Kin Cheung</h1>
+<p class="title">Software Developer &amp; Interactive Media Specialist</p>
+</div>
+</div>
+<nav>
+<ul class="nav-menu">
+<li class="nav-item">
+<a class="nav-link active" data-section="about" href="#about">
+<i class="fas fa-user"></i>
+<span>About Me</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" data-section="games" href="#games">
+<i class="fas fa-gamepad"></i>
+<span>Games</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" data-section="software" href="#software">
+<i class="fas fa-laptop-code"></i>
+<span>Other Software</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" data-section="contact" href="#contact">
+<i class="fas fa-envelope"></i>
+<span>Contact</span>
+</a>
+</li>
+</ul>
+</nav>
+</aside>
+<!-- Main Content -->
+<main class="main-content">
+<!-- About Section -->
+<section class="section active" id="about">
+<h2 class="section-title">About Me</h2>
+<p class="section-subtitle">Passionate software developer specializing in interactive media and game development</p>
+<div class="about-content">
+<div class="intro-text">
+</div>
+<div class="skills-section">
+<h3 class="skills-title">Technical Skills</h3>
+<div class="skills-grid">
+<div class="skill-item">
+<i class="fab fa-java"></i>
+<span>Java</span>
+</div>
+<div class="skill-item">
+<i class="fab fa-python"></i>
+<span>Python</span>
+</div>
+<div class="skill-item">
+<i class="fas fa-code"></i>
+<span>GDScript</span>
+</div>
+<div class="skill-item">
+<i class="fas fa-gamepad"></i>
+<span>Godot Engine</span>
+</div>
+<div class="skill-item">
+<i class="fab fa-git-alt"></i>
+<span>Git</span>
+</div>
+<div class="skill-item">
+<i class="fas fa-hashtag"></i>
+<span>C#</span>
+</div>
+</div>
+</div>
+<div class="cta-section">
+<p class="cta-text">Ready to collaborate on your next project? Let's create something amazing together!</p>
+</div>
+</div>
+</section>
+<!-- Games Section -->
+<section class="section" id="games">
+<h2 class="section-title">Games</h2>
+<p class="section-subtitle">Interactive experiences and game development projects</p>
+<div class="projects-grid">
+<article class="project-card">
+<div class="project-header">
+</div>
+<div class="project-images">
+<img alt="Curse of Lady Evilart Screenshot 1" class="project-image" src="images/cole_pic1.png"/>
+<img alt="Curse of Lady Evilart Screenshot 2" class="project-image" src="images/cole_pic2.png"/>
+</div>
+</article>
+<article class="project-card">
+<div class="project-header">
+</div>
+<div class="project-images">
+<img alt="Nett hier Screenshot 1" class="project-image" src="images/netthier_pic1.png"/>
+<img alt="Nett hier Screenshot 2" class="project-image" src="images/netthier_pic2.png"/>
+</div>
+</article>
+<article class="project-card">
+<div class="project-header">
 
-            <article class="project-card">
-              <div class="project-header">
-                <h3 class="project-title">Nett hier. But have you ever played a Swabian Simulation? (2025)</h3>
-                <a href="https://daruma4.itch.io/nett-hier" target="_blank" rel="noopener noreferrer" class="project-link">
-                  <i class="fas fa-external-link-alt"></i>
-                  Play on itch.io
-                </a>
-                
-                <p class="project-description">
-                  A collaborative university project featuring a life simulation game where the goal is to save as much money as possible. I contributed to game design, programming, and sound design, creating an engaging experience with multiple interaction possibilities across a large overworld.
-                </p>
-                
-                <div class="project-meta">
-                  <span class="meta-tag">
-                    <i class="fas fa-cogs"></i>
-                    Godot 4.3
-                  </span>
-                  <span class="meta-tag">
-                    <i class="fas fa-users"></i>
-                    Team Project
-                  </span>
-                  <span class="meta-tag">
-                    <i class="fas fa-map"></i>
-                    Open World
-                  </span>
-                </div>
-              </div>
-              
-              <div class="project-images">
-                <img src="images/netthier_pic1.png" alt="Nett hier Screenshot 1" class="project-image">
-                <img src="images/netthier_pic2.png" alt="Nett hier Screenshot 2" class="project-image">
-              </div>
-            </article>
-
-            <article class="project-card">
-              <div class="project-header">
-                <h3 class="project-title">Flux (2024)</h3>
-                <a href="https://daruma4.itch.io/flux" target="_blank" rel="noopener noreferrer" class="project-link">
-                  <i class="fas fa-external-link-alt"></i>
-                  Play on itch.io (Password: 1234)
-                </a>
-                
-                <p class="project-description">
-                  An independent project where I recreated and reimagined the game concept of <em>Mr.Oops!!</em> by PONOS. Players must skillfully dodge cannonballs and lasers in this fast-paced action game featuring programmatically generated patterns.
-                </p>
-                
-                <div class="project-meta">
-                  <span class="meta-tag">
-                    <i class="fas fa-cogs"></i>
-                    Godot 4.3
-                  </span>
-                  <span class="meta-tag">
-                    <i class="fas fa-infinity"></i>
-                    Endless Mode
-                  </span>
-                  <span class="meta-tag">
-                    <i class="fas fa-bolt"></i>
-                    Action Game
-                  </span>
-                </div>
-              </div>
-              
-              <div class="project-images">
-                <img src="images/flux_pic1.png" alt="Flux Screenshot 1" class="project-image">
-                <img src="images/flux_pic2.png" alt="Flux Screenshot 2" class="project-image">
-              </div>
-            </article>
+ (Password: 1234)
             
-            <article class="project-card">
-              <div class="project-header">
-                <h3 class="project-title">Jonny Jumper (2024)</h3>
-                <a href="https://fetzen.itch.io/jonny-jumper" target="_blank" rel="noopener noreferrer" class="project-link">
-                  <i class="fas fa-external-link-alt"></i>
-                  Play on itch.io
-                </a>
-                
-                <p class="project-description">
-                  A puzzle platformer created during the GMTK Game Jam 2024, developed collaboratively with fellow students within just 4 days. I focused on programming and implementation, creating a unique mechanic where players place scalable blocks to solve increasingly complex levels.
-                </p>
-                
-                <div class="project-meta">
-                  <span class="meta-tag">
-                    <i class="fas fa-cogs"></i>
-                    Godot 4.3
-                  </span>
-                  <span class="meta-tag">
-                    <i class="fas fa-clock"></i>
-                    Game Jam
-                  </span>
-                  <span class="meta-tag">
-                    <i class="fas fa-cubes"></i>
-                    Puzzle Platformer
-                  </span>
-                </div>
-              </div>
-              
-              <div class="project-images">
-                <img src="images/jj_pic2.jpg" alt="Jonny Jumper Screenshot 1" class="project-image">
-                <img src="images/jj_pic1.jpg" alt="Jonny Jumper Screenshot 2" class="project-image">
-              </div>
-            </article>
-          </div>
-        </section>
-        
-        <!-- Software Section -->
-        <section id="software" class="section">
-          <h2 class="section-title">Other Software</h2>
-          <p class="section-subtitle">Desktop applications and development tools</p>
-          
-          <div class="projects-grid">
-            <article class="project-card software-project">
-              <div class="project-header">
-                <h3 class="project-title">Image Editor (2025)</h3>
-                
-                <p class="project-description">
+            
+
+
+
+</div>
+<div class="project-images">
+<img alt="Flux Screenshot 1" class="project-image" src="images/flux_pic1.png"/>
+<img alt="Flux Screenshot 2" class="project-image" src="images/flux_pic2.png"/>
+</div>
+</article>
+<article class="project-card">
+<div class="project-header">
+</div>
+<div class="project-images">
+<img alt="Jonny Jumper Screenshot 1" class="project-image" src="images/jj_pic2.jpg"/>
+<img alt="Jonny Jumper Screenshot 2" class="project-image" src="images/jj_pic1.jpg"/>
+</div>
+</article>
+</div>
+</section>
+<!-- Software Section -->
+<section class="section" id="software">
+<h2 class="section-title">Other Software</h2>
+<p class="section-subtitle">Desktop applications and development tools</p>
+<div class="projects-grid">
+<article class="project-card software-project">
+<div class="project-header">
+<h3 class="project-title">Image Editor (2025)</h3>
+<p class="project-description">
                   A comprehensive image editing application featuring various advanced filters including blur, gradient, and Hough transformations. Developed as part of my computer science coursework, this project demonstrates practical application of image processing algorithms and user interface design.
                 </p>
-                
-                <div class="project-meta">
-                  <span class="meta-tag">
-                    <i class="fab fa-java"></i>
+<div class="project-meta">
+<span class="meta-tag">
+<i class="fab fa-java"></i>
                     Java
                   </span>
-                  <span class="meta-tag">
-                    <i class="fas fa-image"></i>
+<span class="meta-tag">
+<i class="fas fa-image"></i>
                     Image Processing
                   </span>
-                  <span class="meta-tag">
-                    <i class="fas fa-desktop"></i>
+<span class="meta-tag">
+<i class="fas fa-desktop"></i>
                     Desktop App
                   </span>
-                </div>
-              </div>
-              
-              <div class="project-images">
-                <img src="images/imageeditor_pic1.png" alt="Image Editor Screenshot 1" class="project-image">
-                <img src="images/imageeditor_pic2.png" alt="Image Editor Screenshot 2" class="project-image">
-              </div>
-            </article>
-
-            <article class="project-card software-project">
-              <div class="project-header">
-                <h3 class="project-title">Countdown Timer Application (2024)</h3>
-                
-                <p class="project-description">
+</div>
+</div>
+<div class="project-images">
+<img alt="Image Editor Screenshot 1" class="project-image" src="images/imageeditor_pic1.png"/>
+<img alt="Image Editor Screenshot 2" class="project-image" src="images/imageeditor_pic2.png"/>
+</div>
+</article>
+<article class="project-card software-project">
+<div class="project-header">
+<h3 class="project-title">Countdown Timer Application (2024)</h3>
+<p class="project-description">
                   A customizable countdown application designed for personal time management. Features multiple background themes, GIF display capabilities, and external file integration for reading personal schedules. Built during my 2nd semester as a practical exercise in Java development and GUI programming with Swing.
                 </p>
-                
-                <div class="project-meta">
-                  <span class="meta-tag">
-                    <i class="fab fa-java"></i>
+<div class="project-meta">
+<span class="meta-tag">
+<i class="fab fa-java"></i>
                     Java Swing
                   </span>
-                  <span class="meta-tag">
-                    <i class="fas fa-clock"></i>
+<span class="meta-tag">
+<i class="fas fa-clock"></i>
                     Time Management
                   </span>
-                  <span class="meta-tag">
-                    <i class="fas fa-cog"></i>
+<span class="meta-tag">
+<i class="fas fa-cog"></i>
                     Customizable UI
                   </span>
-                </div>
-              </div>
-              
-              <div class="project-images">
-                <img src="images/countdown_pic1.png" alt="Countdown App Screenshot 1" class="project-image">
-                <img src="images/countdown_pic2.png" alt="Countdown App Screenshot 2" class="project-image">
-              </div>
-            </article>
-            
-            <article class="project-card software-project">
-              <div class="project-header">
-                <h3 class="project-title">Solar System Simulation (2023)</h3>
-                
-                <p class="project-description">
+</div>
+</div>
+<div class="project-images">
+<img alt="Countdown App Screenshot 1" class="project-image" src="images/countdown_pic1.png"/>
+<img alt="Countdown App Screenshot 2" class="project-image" src="images/countdown_pic2.png"/>
+</div>
+</article>
+<article class="project-card software-project">
+<div class="project-header">
+<h3 class="project-title">Solar System Simulation (2023)</h3>
+<p class="project-description">
                   An interactive educational solar system simulation that accurately visualizes planetary orbital periods and celestial mechanics. Users can adjust time speed, zoom in on individual planets, and explore detailed information about each planet's moons. Developed during my 1st semester as an introduction to Java development and 2D graphics programming.
                 </p>
-                
-                <div class="project-meta">
-                  <span class="meta-tag">
-                    <i class="fab fa-java"></i>
+<div class="project-meta">
+<span class="meta-tag">
+<i class="fab fa-java"></i>
                     Java Processing
                   </span>
-                  <span class="meta-tag">
-                    <i class="fas fa-globe"></i>
+<span class="meta-tag">
+<i class="fas fa-globe"></i>
                     Educational
                   </span>
-                  <span class="meta-tag">
-                    <i class="fas fa-rocket"></i>
+<span class="meta-tag">
+<i class="fas fa-rocket"></i>
                     Space Simulation
                   </span>
-                </div>
-              </div>
-              
-              <div class="project-images">
-                <img src="images/solarsystem_pic1.png" alt="Solar System Simulation Screenshot 1" class="project-image">
-                <img src="images/solarsystem_pic2.png" alt="Solar System Simulation Screenshot 2" class="project-image">
-              </div>
-            </article>
-          </div>
-        </section>
-        
-        <!-- Contact Section -->
-        <section id="contact" class="section">
-          <h2 class="section-title">Contact</h2>
-          <p class="section-subtitle">Let's connect and discuss opportunities</p>
-          
-          <div class="contact-info">
-            <div class="intro-text">
-              <p>I'm always interested in new opportunities, collaborations, and discussions about technology and game development. Whether you have a project in mind or just want to connect, I'd love to hear from you!</p>
-            </div>
-            
-            <div class="contact-item">
-              <i class="fas fa-envelope"></i>
-              <div>
-                <strong>Email:</strong>
-                <a href="mailto:contact@tak-kin.com">contact@tak-kin.com</a>
-              </div>
-            </div>
-          </div>
-        </section>
-        
-        <footer class="footer">
-          <p>&copy; 2025 Dennis Tak-Kin Cheung. All rights reserved.</p>
-        </footer>
-      </main>
-    </div>
-    
-    <!-- Lightbox -->
-    <div id="lightbox" class="lightbox">
-      <span class="lightbox-close">&times;</span>
-      <img id="lightbox-img" class="lightbox-content" alt="Enlarged view">
-    </div>
-    
-    <script>
+</div>
+</div>
+<div class="project-images">
+<img alt="Solar System Simulation Screenshot 1" class="project-image" src="images/solarsystem_pic1.png"/>
+<img alt="Solar System Simulation Screenshot 2" class="project-image" src="images/solarsystem_pic2.png"/>
+</div>
+</article>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="section" id="contact">
+<h2 class="section-title">Contact</h2>
+<p class="section-subtitle">Let's connect and discuss opportunities</p>
+<div class="contact-info">
+<div class="intro-text">
+<p>I'm always interested in new opportunities, collaborations, and discussions about technology and game development. Whether you have a project in mind or just want to connect, I'd love to hear from you!</p>
+</div>
+<div class="contact-item">
+<i class="fas fa-envelope"></i>
+<div>
+<strong>Email:</strong>
+<a href="mailto:cheungtkn@gmail.com">cheungtkn@gmail.com</a>
+</div>
+</div>
+</div>
+</section>
+<footer class="footer">
+<p>© 2025 Dennis Tak-Kin Cheung. All rights reserved.</p>
+</footer>
+</main>
+</div>
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+<span class="lightbox-close">×</span>
+<img alt="Enlarged view" class="lightbox-content" id="lightbox-img"/>
+</div>
+<script>
       // Navigation functionality
       document.addEventListener('DOMContentLoaded', function() {
         const navLinks = document.querySelectorAll('.nav-link');
@@ -1114,15 +998,6 @@
           });
         });
         
-        // Enhanced mobile navigation
-        if (window.innerWidth <= 1024) {
-          const sidebar = document.querySelector('.sidebar');
-          let isNavOpen = false;
-          
-          // Add mobile nav toggle functionality if needed
-          // This can be expanded for a hamburger menu if desired
-        }
-        
         // Performance optimization: Debounced resize handler
         let resizeTimeout;
         window.addEventListener('resize', function() {
@@ -1138,5 +1013,5 @@
         document.body.classList.toggle('mobile-view', window.innerWidth <= 1024);
       });
     </script>
-  </body>
+</body>
 </html>
