@@ -395,18 +395,6 @@ body {
   box-shadow: var(--shadow-lg);
 }
 
-/* Software Project Styling */
-.software-project {
-  border-left: 4px solid var(--secondary-color);
-}
-
-.software-project .project-title {
-  background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
 /* Contact Section */
 .contact-info {
   background: var(--bg-secondary);
