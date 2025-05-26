@@ -314,11 +314,6 @@ body {
   border: 1px solid var(--border-color);
 }
 
-.project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-xl);
-}
-
 .project-header {
   padding: 2rem 2rem 1rem;
 }
