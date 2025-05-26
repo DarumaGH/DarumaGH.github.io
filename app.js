@@ -105,7 +105,7 @@ class PortfolioApp {
                 
                 // Scroll to the section with offset
                 const targetElement = document.getElementById(targetSection);
-                const offsetTop = targetElement.offsetTop + 30; // Adjust offset as needed
+                const offsetTop = targetElement.offsetTop + 25; // Adjust offset as needed
                 window.scrollTo({
                     top: offsetTop,
                     behavior: 'smooth'
@@ -122,21 +122,7 @@ class PortfolioApp {
         window.addEventListener('scroll', () => {
             const currentTime = Date.now();
             
-            if (this.isScrollingToSection) {
-                // Clear any existing user scroll timeout
-                clearTimeout(userScrollTimeout);
-                
-                // If user scrolls within a short time after programmatic scroll,
-                // immediately enable nav updates
-                userScrollTimeout = setTimeout(() => {
-                    this.isScrollingToSection = false;
-                }, 100);
-                
-                // Also check if user is actively scrolling by detecting rapid scroll events
-                if (currentTime - lastScrollTime < 16) { // ~60fps threshold
-                    this.isScrollingToSection = false;
-                }
-            }
+            
             
             lastScrollTime = currentTime;
         }, { passive: true });
