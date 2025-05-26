@@ -57,8 +57,8 @@ class PortfolioApp {
         };
 
         const observer = new IntersectionObserver((entries) => {
-            // Only update navigation if we're not currently scrolling to a section
-            if (!this.isScrollingToSection) {
+            // Only update navigation if we're not in mobile view and not currently scrolling
+            if (!this.isScrollingToSection && !document.body.classList.contains('mobile-view')) {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         const sectionId = entry.target.id;
@@ -84,64 +84,45 @@ class PortfolioApp {
 
     setupNavigation() {
         const navLinks = document.querySelectorAll('.nav-link');
-        let lastScrollTime = 0;
-        let userScrollTimeout;
         
         navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
                 const targetSection = link.getAttribute('data-section');
                 
-                // Set flag to indicate we're scrolling programmatically
-                this.isScrollingToSection = true;
-                
-                // Clear any existing timeout
-                if (this.scrollTimeout) {
-                    clearTimeout(this.scrollTimeout);
-                }
-                
-                // Immediately update the active nav to the clicked section
-                this.updateActiveNav(targetSection);
-                
-                // Scroll to the section with offset
-                const targetElement = document.getElementById(targetSection);
-                const offsetTop = targetElement.offsetTop + 25; // Adjust offset as needed
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
+                if (window.innerWidth <= 1024) {
+                    // Mobile behavior: show only clicked section
+                    document.querySelectorAll('.section').forEach(section => {
+                        section.classList.remove('active');
+                    });
+                    document.getElementById(targetSection).classList.add('active');
+                    this.updateActiveNav(targetSection);
+                } else {
+                    // Desktop behavior: smooth scroll
+                    this.isScrollingToSection = true;
+                    
+                    if (this.scrollTimeout) {
+                        clearTimeout(this.scrollTimeout);
+                    }
+                    
+                    this.updateActiveNav(targetSection);
+                    
+                    const targetElement = document.getElementById(targetSection);
+                    const offsetTop = targetElement.offsetTop + 25;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
 
-                // Reset the flag after a shorter duration
-                this.scrollTimeout = setTimeout(() => {
-                    this.isScrollingToSection = false;
-                }, 500);
+                    this.scrollTimeout = setTimeout(() => {
+                        this.isScrollingToSection = false;
+                    }, 500);
+                }
             });
         });
-        
-        // Listen for scroll events to detect user scrolling
-        window.addEventListener('scroll', () => {
-            const currentTime = Date.now();
-            
-            
-            
-            lastScrollTime = currentTime;
-        }, { passive: true });
-        
-        // Also listen for wheel and touch events to immediately detect user interaction
-        const immediateUserScrollHandler = () => {
-            if (this.isScrollingToSection) {
-                this.isScrollingToSection = false;
-            }
-        };
-        
-        window.addEventListener('wheel', immediateUserScrollHandler, { passive: true });
-        window.addEventListener('touchstart', immediateUserScrollHandler, { passive: true });
-        window.addEventListener('keydown', (e) => {
-            // Detect keyboard scrolling (arrow keys, page up/down, etc.)
-            if (['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End'].includes(e.key)) {
-                immediateUserScrollHandler();
-            }
-        });
+
+        // Update the resize handler to handle view switching
+        this.setupResizeHandler();
     }
 
     setupLightbox() {
@@ -243,11 +224,37 @@ class PortfolioApp {
             resizeTimeout = setTimeout(() => {
                 const isMobile = window.innerWidth <= 1024;
                 document.body.classList.toggle('mobile-view', isMobile);
+                
+                if (isMobile) {
+                    // Show only current active section
+                    const activeNav = document.querySelector('.nav-link.active');
+                    if (activeNav) {
+                        const activeSection = activeNav.getAttribute('data-section');
+                        document.querySelectorAll('.section').forEach(section => {
+                            section.classList.remove('active');
+                        });
+                        document.getElementById(activeSection).classList.add('active');
+                    } else {
+                        // Default to first section if none active
+                        document.getElementById(this.sections[0]).classList.add('active');
+                        this.updateActiveNav(this.sections[0]);
+                    }
+                } else {
+                    // Show all sections in desktop view
+                    document.querySelectorAll('.section').forEach(section => {
+                        section.classList.remove('active');
+                    });
+                }
             }, 250);
         });
         
-        // Initial call to set mobile class
-        document.body.classList.toggle('mobile-view', window.innerWidth <= 1024);
+        // Initial setup
+        const isMobile = window.innerWidth <= 1024;
+        document.body.classList.toggle('mobile-view', isMobile);
+        if (isMobile) {
+            document.getElementById(this.sections[0]).classList.add('active');
+            this.updateActiveNav(this.sections[0]);
+        }
     }
 }
 

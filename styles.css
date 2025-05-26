@@ -559,96 +559,72 @@ body {
 @media (max-width: 1024px) {
   .container {
     flex-direction: column;
-    gap: 1.5rem;
-    padding: 1.5rem;
+    gap: 1rem;
+    padding: 1rem;
   }
   
   .sidebar {
     width: 100%;
     position: static;
-  }
-  
-  .profile-section {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    text-align: left;
-    border-bottom: none;
-    padding-bottom: 0;
-    margin-bottom: 1.5rem;
-  }
-  
-  .profile-pic {
-    margin: 0;
-    width: 100px;
-    height: 100px;
-  }
-  
-  .nav-menu {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 0.5rem;
+    padding: 1.5rem;
   }
   
   .main-content {
-    padding: 2rem;
+    padding: 1rem;
   }
-  
-  .section-title {
-    font-size: 2rem;
-  }
-  
-  .skills-grid {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+
+  .section {
+    padding: 1.5rem;
   }
 }
 
 @media (max-width: 768px) {
   .container {
+    padding: 0.5rem;
+  }
+  
+  .sidebar {
+    padding: 1rem;
+    border-radius: 8px;
+  }
+  
+  .main-content {
+    padding: 0.5rem;
+  }
+
+  .section {
     padding: 1rem;
   }
   
-  .sidebar,
-  .main-content {
-    padding: 1.5rem;
-  }
-  
-  .profile-section {
-    flex-direction: column;
-    text-align: center;
-    gap: 1rem;
-  }
-  
-  .nav-menu {
-    grid-template-columns: 1fr;
-  }
-  
-  .section-title {
-    font-size: 1.8rem;
-  }
-  
-  .skills-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
   .project-images {
-    grid-template-columns: 1fr;
-    padding: 0 1.5rem 1.5rem;
+    padding: 0 1rem 1rem;
   }
 }
 
 @media (max-width: 480px) {
-  .skills-grid {
-    grid-template-columns: 1fr;
+  .container {
+    padding: 0.25rem;
   }
   
-  .project-meta {
-    flex-direction: column;
-    align-items: flex-start;
+  .sidebar,
+  .main-content {
+    border-radius: 6px;
+  }
+
+  .section {
+    padding: 1rem 0.75rem;
   }
   
-  .meta-tag {
-    align-self: stretch;
-    justify-content: center;
+  .project-images {
+    padding: 0 0.75rem 0.75rem;
   }
+}
+
+/* Mobile View Adjustments */
+.mobile-view .section {
+    display: none;
+}
+
+.mobile-view .section.active {
+    display: block;
 }
