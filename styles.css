@@ -561,16 +561,23 @@ body {
     flex-direction: column;
     gap: 1rem;
     padding: 1rem;
+    height: 100vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
   
   .sidebar {
     width: 100%;
     position: static;
     padding: 1.5rem;
+    flex-shrink: 0;
   }
   
   .main-content {
     padding: 1rem;
+    flex: none;
+    overflow: visible;
+    height: auto;
   }
 
   .section {
@@ -621,10 +628,44 @@ body {
 }
 
 /* Mobile View Adjustments */
+.mobile-view .container {
+    height: 100vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.mobile-view .main-content {
+    height: auto;
+    overflow: visible;
+    flex: none;
+}
+
 .mobile-view .section {
     display: none;
+    min-height: auto;
+    height: auto;
 }
 
 .mobile-view .section.active {
     display: block;
+    padding-bottom: 50px;
+}
+
+@media (max-width: 1024px) {
+    body {
+        overflow: hidden;
+        height: 100vh;
+    }
+    
+    .container {
+        height: 100vh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .main-content {
+        flex: none;
+        overflow: visible;
+        height: auto;
+    }
 }
