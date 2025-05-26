@@ -103,11 +103,14 @@ class PortfolioApp {
                 // Immediately update the active nav to the clicked section
                 this.updateActiveNav(targetSection);
                 
-                // Scroll to the section
-                document.getElementById(targetSection).scrollIntoView({ 
-                    behavior: 'smooth' 
+                // Scroll to the section with offset
+                const targetElement = document.getElementById(targetSection);
+                const offsetTop = targetElement.offsetTop + 30; // Adjust offset as needed
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
                 });
-                
+
                 // Reset the flag after a shorter duration
                 this.scrollTimeout = setTimeout(() => {
                     this.isScrollingToSection = false;
