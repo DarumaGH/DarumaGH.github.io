@@ -2,78 +2,156 @@
 class PortfolioApp {
     constructor() {
         this.currentSection = 'about';
+        this.sections = ['about', 'games', 'software', 'contact'];
+        this.isScrollingToSection = false; // Flag to track programmatic scrolling
+        this.scrollTimeout = null; // Timeout to reset the flag
         this.init();
     }
 
     init() {
-        document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('DOMContentLoaded', async () => {
+            await this.loadAllSections();
             this.setupNavigation();
             this.setupLightbox();
             this.setupScrollAnimations();
             this.setupExternalLinks();
             this.setupResizeHandler();
-            this.loadSection('about'); // Load initial section
+            this.setupScrollObserver();
         });
+    }
+
+    async loadAllSections() {
+        for (const section of this.sections) {
+            await this.loadSection(section);
+        }
     }
 
     async loadSection(sectionName) {
         try {
             const response = await fetch(`sections/${sectionName}.html`);
-            if (!response.ok) {
-                throw new Error(`Failed to load section: ${sectionName}`);
-            }
+            if (!response.ok) throw new Error(`Failed to load section: ${sectionName}`);
             
             const content = await response.text();
-            const mainContent = document.getElementById('main-content');
-            
-            // Add fade out effect
-            mainContent.style.opacity = '0';
-            
-            setTimeout(() => {
-                mainContent.innerHTML = content;
-                
-                // Re-initialize lightbox for new images
-                this.setupLightbox();
-                
-                // Scroll to top of main content without affecting sidebar
-                mainContent.scrollTop = 0;
-                
-                // Add fade in effect
-                mainContent.style.opacity = '1';
-                
-                // Update current section
-                this.currentSection = sectionName;
-            }, 150);
-            
+            const sectionElement = document.getElementById(sectionName);
+            if (sectionElement) {
+                sectionElement.innerHTML = content;
+            }
         } catch (error) {
             console.error('Error loading section:', error);
-            document.getElementById('main-content').innerHTML = `
-                <div class="content-container">
-                    <h2 class="section-title">Error</h2>
-                    <p>Sorry, failed to load the ${sectionName} section.</p>
-                </div>
-            `;
+            const sectionElement = document.getElementById(sectionName);
+            if (sectionElement) {
+                sectionElement.innerHTML = `
+                    <div class="content-container">
+                        <h2 class="section-title">Error</h2>
+                        <p>Sorry, failed to load the ${sectionName} section.</p>
+                    </div>
+                `;
+            }
         }
+    }
+
+    setupScrollObserver() {
+        const options = {
+            threshold: 0.1,
+            rootMargin: '-20% 0px -20% 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            // Only update navigation if we're not currently scrolling to a section
+            if (!this.isScrollingToSection) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const sectionId = entry.target.id;
+                        this.updateActiveNav(sectionId);
+                    }
+                });
+            }
+        }, options);
+
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+    }
+
+    updateActiveNav(sectionId) {
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('data-section') === sectionId) {
+                link.classList.add('active');
+            }
+        });
     }
 
     setupNavigation() {
         const navLinks = document.querySelectorAll('.nav-link');
+        let lastScrollTime = 0;
+        let userScrollTimeout;
         
         navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
-                
                 const targetSection = link.getAttribute('data-section');
                 
-                // Remove active class from all nav links
-                navLinks.forEach(nav => nav.classList.remove('active'));
+                // Set flag to indicate we're scrolling programmatically
+                this.isScrollingToSection = true;
                 
-                // Add active class to clicked nav link
-                link.classList.add('active');
+                // Clear any existing timeout
+                if (this.scrollTimeout) {
+                    clearTimeout(this.scrollTimeout);
+                }
                 
-                // Load the section content
-                this.loadSection(targetSection);
+                // Immediately update the active nav to the clicked section
+                this.updateActiveNav(targetSection);
+                
+                // Scroll to the section
+                document.getElementById(targetSection).scrollIntoView({ 
+                    behavior: 'smooth' 
+                });
+                
+                // Reset the flag after a shorter duration
+                this.scrollTimeout = setTimeout(() => {
+                    this.isScrollingToSection = false;
+                }, 500);
             });
+        });
+        
+        // Listen for scroll events to detect user scrolling
+        window.addEventListener('scroll', () => {
+            const currentTime = Date.now();
+            
+            if (this.isScrollingToSection) {
+                // Clear any existing user scroll timeout
+                clearTimeout(userScrollTimeout);
+                
+                // If user scrolls within a short time after programmatic scroll,
+                // immediately enable nav updates
+                userScrollTimeout = setTimeout(() => {
+                    this.isScrollingToSection = false;
+                }, 100);
+                
+                // Also check if user is actively scrolling by detecting rapid scroll events
+                if (currentTime - lastScrollTime < 16) { // ~60fps threshold
+                    this.isScrollingToSection = false;
+                }
+            }
+            
+            lastScrollTime = currentTime;
+        }, { passive: true });
+        
+        // Also listen for wheel and touch events to immediately detect user interaction
+        const immediateUserScrollHandler = () => {
+            if (this.isScrollingToSection) {
+                this.isScrollingToSection = false;
+            }
+        };
+        
+        window.addEventListener('wheel', immediateUserScrollHandler, { passive: true });
+        window.addEventListener('touchstart', immediateUserScrollHandler, { passive: true });
+        window.addEventListener('keydown', (e) => {
+            // Detect keyboard scrolling (arrow keys, page up/down, etc.)
+            if (['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End'].includes(e.key)) {
+                immediateUserScrollHandler();
+            }
         });
     }
 

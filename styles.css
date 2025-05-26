@@ -175,12 +175,14 @@ body {
 
 /* Main Content */
 .main-content {
-  flex: 1;
-  background: var(--bg-primary);
-  border-radius: var(--border-radius);
-  padding: 3rem;
-  box-shadow: var(--shadow-lg);
-  transition: var(--transition);
+    flex: 1;
+    background: var(--bg-primary);
+    border-radius: var(--border-radius);
+    padding: 0;
+    box-shadow: var(--shadow-lg);
+    transition: var(--transition);
+    overflow-y: auto;
+    scroll-behavior: smooth;
 }
 
 .content-container {
@@ -196,6 +198,12 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.section {
+    min-height: 100vh;
+    padding: 3rem;
+    scroll-margin-top: 2rem;
 }
 
 .section-title {
