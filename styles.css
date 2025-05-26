@@ -269,7 +269,7 @@ body {
   font-weight: 700;
   margin-bottom: 2rem;
   color: var(--text-primary);
-  text-align: center;
+  text-align: left;  /* Changed from center to left */
   position: relative;
 }
 
@@ -277,8 +277,8 @@ body {
   content: '';
   position: absolute;
   bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;  /* Changed from 50% to 0 */
+  transform: none;  /* Removed translateX */
   width: 40px;
   height: 3px;
   background: var(--primary-gradient);
@@ -363,20 +363,6 @@ body {
   z-index: 1;
   position: relative;
   white-space: nowrap;
-}
-
-.cta-section {
-  background: var(--primary-gradient);
-  color: white;
-  padding: 2rem;
-  border-radius: var(--border-radius);
-  text-align: center;
-  margin-top: 2rem;
-}
-
-.cta-text {
-  font-size: 1.2rem;
-  font-weight: 600;
 }
 
 /* Project Cards */
