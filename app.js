@@ -52,8 +52,8 @@ class PortfolioApp {
 
     setupScrollObserver() {
         const options = {
-            threshold: 0.1,
-            rootMargin: '-20% 0px -20% 0px'
+            threshold: 0.15,
+            rootMargin: '-150px 0px -150px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
@@ -109,10 +109,17 @@ class PortfolioApp {
                     
                     const targetElement = document.getElementById(targetSection);
                     const offsetTop = targetElement.offsetTop + 25;
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
+                    
+                    // If the target section is 'about', scroll to the top
+                    // Otherwise, use an offset for other sections
+                    if (targetSection === 'about') {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    } else {
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
 
                     this.scrollTimeout = setTimeout(() => {
                         this.isScrollingToSection = false;
