@@ -54,8 +54,8 @@ class PortfolioApp {
         const isMobile = window.innerWidth <= 1024;
         
         const options = {
-            threshold: isMobile ? 0.1 : 0.3,
-            rootMargin: isMobile ? '-20% 0px -20% 0px' : '-10% 0px -10% 0px'
+            threshold: isMobile ? 0.2 : 0.25,
+            rootMargin: isMobile ? '-20% 0px -20% 0px' : '-25% 0px -25% 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {

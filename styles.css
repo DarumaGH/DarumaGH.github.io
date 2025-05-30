@@ -212,7 +212,7 @@ body {
 
 /* Contact section specific height */
 #contact {
-    min-height: calc(100vh - 4rem); /* This ensures the contact section fills the viewport minus some padding */
+    min-height: calc(100vh - 2rem); /* This ensures the contact section fills the viewport minus some padding */
 }
 
 /* Adjust responsive breakpoints */
@@ -231,14 +231,14 @@ body {
 @media (max-width: 768px) {
     .section {
         padding: 2rem;
-        margin-bottom: 1rem;
+        margin-bottom: 2rem;
     }
 }
 
 @media (max-width: 480px) {
     .section {
         padding: 1.5rem;
-        margin-bottom: 0.75rem;
+        margin-bottom: 2rem;
     }
 }
 
