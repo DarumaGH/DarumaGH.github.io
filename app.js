@@ -50,42 +50,78 @@ class PortfolioApp {
         }
     }
 
-    setupScrollObserver() {
-        const windowWidth = window.innerWidth;
-        const baseThreshold = 0.2;
+    // Calculate how much of a section is visible on screen
+    getVisiblePercentage(element) {
+        const rect = element.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
         
-        // Calculate thresholds based on screen width ratio
-        const widthRatio = Math.min(windowWidth / 1920, 1); // 1920 as base desktop width
-        const thresholdMultiplier = 0.8 + (widthRatio * 0.2); // Scale between 0.8 and 1.0
+        // If element is completely above or below viewport
+        if (rect.bottom <= 0 || rect.top >= windowHeight) {
+            return 0;
+        }
         
-        const thresholds = [
-            baseThreshold * thresholdMultiplier,
-            baseThreshold * 2 * thresholdMultiplier,
-            baseThreshold * 3.5 * thresholdMultiplier
-        ];
+        // Calculate visible portion
+        const visibleTop = Math.max(0, rect.top);
+        const visibleBottom = Math.min(windowHeight, rect.bottom);
+        const visibleHeight = visibleBottom - visibleTop;
+        const totalHeight = rect.height;
         
-        const options = {
-            threshold: thresholds,
-            rootMargin: '-20% 0px -20% 0px'
-        };
+        return totalHeight > 0 ? (visibleHeight / totalHeight) * 100 : 0;
+    }
 
-        const observer = new IntersectionObserver((entries) => {
-            // Only update navigation if not currently scrolling programmatically
-            if (!this.isScrollingToSection) {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const sectionId = entry.target.id;
-                        this.updateActiveNav(sectionId);
-                    }
-                });
-            }
-        }, options);
-
-        // Re-observe all sections
+    // Find the section with the highest visible percentage
+    getMostVisibleSection() {
+        let mostVisibleSection = null;
+        let highestVisibility = 0;
+        
         document.querySelectorAll('.section').forEach(section => {
-            observer.unobserve(section);
-            observer.observe(section);
+            const visibilityPercentage = this.getVisiblePercentage(section);
+            
+            if (visibilityPercentage > highestVisibility) {
+                highestVisibility = visibilityPercentage;
+                mostVisibleSection = section.id;
+            }
         });
+        
+        return mostVisibleSection;
+    }
+
+    setupScrollObserver() {
+        // Use scroll event instead of IntersectionObserver for more precise control
+        let scrollTimeout;
+        
+        const handleScroll = () => {
+            // Clear existing timeout
+            clearTimeout(scrollTimeout);
+            
+            // Debounce the scroll event
+            scrollTimeout = setTimeout(() => {
+                // Only update navigation if not currently scrolling programmatically
+                if (!this.isScrollingToSection) {
+                    const mostVisibleSection = this.getMostVisibleSection();
+                    if (mostVisibleSection && mostVisibleSection !== this.currentSection) {
+                        this.currentSection = mostVisibleSection;
+                        this.updateActiveNav(mostVisibleSection);
+                    }
+                }
+            });
+        };
+        
+        // Remove existing scroll listener if any
+        window.removeEventListener('scroll', this.scrollHandler);
+        
+        // Store reference for cleanup
+        this.scrollHandler = handleScroll;
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        
+        // Initial check
+        setTimeout(() => {
+            const mostVisibleSection = this.getMostVisibleSection();
+            if (mostVisibleSection) {
+                this.currentSection = mostVisibleSection;
+                this.updateActiveNav(mostVisibleSection);
+            }
+        }, 100);
     }
 
     updateActiveNav(sectionId) {
@@ -114,6 +150,7 @@ class PortfolioApp {
                 
                 // Update the active nav immediately
                 this.updateActiveNav(targetSection);
+                this.currentSection = targetSection;
                 
                 const targetElement = document.getElementById(targetSection);
                 let offsetTop;
@@ -249,8 +286,12 @@ class PortfolioApp {
         window.addEventListener('resize', () => {
             clearTimeout(resizeTimeout);
             resizeTimeout = setTimeout(() => {
-                // Recalculate scroll positions if needed
-                this.setupScrollObserver();
+                // Recalculate the most visible section after resize
+                const mostVisibleSection = this.getMostVisibleSection();
+                if (mostVisibleSection) {
+                    this.currentSection = mostVisibleSection;
+                    this.updateActiveNav(mostVisibleSection);
+                }
             }, 250);
         });
     }
