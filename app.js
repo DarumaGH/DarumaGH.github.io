@@ -52,13 +52,13 @@ class PortfolioApp {
 
     setupScrollObserver() {
         const options = {
-            threshold: 0.15,
-            rootMargin: '-150px 0px -150px 0px'
+            threshold: 0.3,
+            rootMargin: '-100px 0px -100px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
-            // Only update navigation if we're not in mobile view and not currently scrolling
-            if (!this.isScrollingToSection && !document.body.classList.contains('mobile-view')) {
+            // Only update navigation if not currently scrolling programmatically
+            if (!this.isScrollingToSection) {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         const sectionId = entry.target.id;
@@ -90,74 +90,76 @@ class PortfolioApp {
                 e.preventDefault();
                 const targetSection = link.getAttribute('data-section');
                 
-                if (window.innerWidth <= 1024) {
-                    // Mobile behavior: show only clicked section
-                    document.querySelectorAll('.section').forEach(section => {
-                        section.classList.remove('active');
-                    });
-                    document.getElementById(targetSection).classList.add('active');
-                    this.updateActiveNav(targetSection);
-                } else {
-                    // Desktop behavior: smooth scroll
-                    this.isScrollingToSection = true;
-                    
-                    if (this.scrollTimeout) {
-                        clearTimeout(this.scrollTimeout);
-                    }
-                    
-                    this.updateActiveNav(targetSection);
-                    
-                    const targetElement = document.getElementById(targetSection);
-                    const offsetTop = targetElement.offsetTop + 25;
-                    
-                    // If the target section is 'about', scroll to the top
-                    // Otherwise, use an offset for other sections
-                    if (targetSection === 'about') {
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
-                    } else {
-                        window.scrollTo({
-                            top: offsetTop,
-                            behavior: 'smooth'
-                        });
-                    }
-
-                    this.scrollTimeout = setTimeout(() => {
-                        this.isScrollingToSection = false;
-                    }, 500);
+                // Set the scrolling flag
+                this.isScrollingToSection = true;
+                
+                if (this.scrollTimeout) {
+                    clearTimeout(this.scrollTimeout);
                 }
+                
+                // Update the active nav immediately
+                this.updateActiveNav(targetSection);
+                
+                const targetElement = document.getElementById(targetSection);
+                let offsetTop;
+                
+                if (window.innerWidth <= 1024) {
+                    // Mobile: account for sticky header height
+                    const sidebarHeight = document.querySelector('.sidebar').offsetHeight;
+                    offsetTop = targetElement.offsetTop - sidebarHeight - 10;
+                } else {
+                    // Desktop: use existing offset
+                    offsetTop = targetElement.offsetTop + 25;
+                }
+                
+                // Scroll to the target section
+                if (targetSection === 'about') {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+
+                // Reset the scrolling flag after animation completes
+                this.scrollTimeout = setTimeout(() => {
+                    this.isScrollingToSection = false;
+                }, 800); // Increased timeout for smoother mobile experience
             });
         });
 
-        // Update the resize handler to handle view switching
-        this.setupResizeHandler();
+        // Initialize the first active nav item
+        this.updateActiveNav(this.sections[0]);
     }
 
     setupLightbox() {
-        const projectImages = document.querySelectorAll('.project-image');
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightbox-img');
-        const lightboxClose = document.querySelector('.lightbox-close');
-        
-        // Open lightbox
-        projectImages.forEach(image => {
-            image.addEventListener('click', () => {
+        // Use event delegation to handle dynamically loaded images
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('project-image')) {
+                const lightbox = document.getElementById('lightbox');
+                const lightboxImg = document.getElementById('lightbox-img');
+                
                 lightbox.style.display = 'block';
-                lightboxImg.src = image.src;
-                lightboxImg.alt = image.alt;
+                lightboxImg.src = e.target.src;
+                lightboxImg.alt = e.target.alt;
                 document.body.style.overflow = 'hidden';
-            });
+            }
         });
         
         // Close lightbox
         const closeLightbox = () => {
+            const lightbox = document.getElementById('lightbox');
             lightbox.style.display = 'none';
             document.body.style.overflow = 'auto';
         };
         
+        const lightboxClose = document.querySelector('.lightbox-close');
         if (lightboxClose) {
             lightboxClose.addEventListener('click', closeLightbox);
         }
         
+        const lightbox = document.getElementById('lightbox');
         lightbox.addEventListener('click', (e) => {
             if (e.target === lightbox) {
                 closeLightbox();
@@ -203,24 +205,27 @@ class PortfolioApp {
             });
         }, observerOptions);
         
-        // Observe project cards for scroll animations
-        const projectCards = document.querySelectorAll('.project-card');
-        projectCards.forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(30px)';
-            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(card);
-        });
+        // Use a timeout to ensure content is loaded before observing
+        setTimeout(() => {
+            const projectCards = document.querySelectorAll('.project-card');
+            projectCards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+        }, 500);
     }
 
     setupExternalLinks() {
-        document.querySelectorAll('a[target="_blank"]').forEach(link => {
-            link.addEventListener('click', function() {
-                this.style.transform = 'scale(0.98)';
+        document.addEventListener('click', (e) => {
+            if (e.target.matches('a[target="_blank"]') || e.target.closest('a[target="_blank"]')) {
+                const link = e.target.matches('a[target="_blank"]') ? e.target : e.target.closest('a[target="_blank"]');
+                link.style.transform = 'scale(0.98)';
                 setTimeout(() => {
-                    this.style.transform = 'scale(1)';
+                    link.style.transform = 'scale(1)';
                 }, 100);
-            });
+            }
         });
     }
 
@@ -229,39 +234,10 @@ class PortfolioApp {
         window.addEventListener('resize', () => {
             clearTimeout(resizeTimeout);
             resizeTimeout = setTimeout(() => {
-                const isMobile = window.innerWidth <= 1024;
-                document.body.classList.toggle('mobile-view', isMobile);
-                
-                if (isMobile) {
-                    // Show only current active section
-                    const activeNav = document.querySelector('.nav-link.active');
-                    if (activeNav) {
-                        const activeSection = activeNav.getAttribute('data-section');
-                        document.querySelectorAll('.section').forEach(section => {
-                            section.classList.remove('active');
-                        });
-                        document.getElementById(activeSection).classList.add('active');
-                    } else {
-                        // Default to first section if none active
-                        document.getElementById(this.sections[0]).classList.add('active');
-                        this.updateActiveNav(this.sections[0]);
-                    }
-                } else {
-                    // Show all sections in desktop view
-                    document.querySelectorAll('.section').forEach(section => {
-                        section.classList.remove('active');
-                    });
-                }
+                // Recalculate scroll positions if needed
+                this.setupScrollObserver();
             }, 250);
         });
-        
-        // Initial setup
-        const isMobile = window.innerWidth <= 1024;
-        document.body.classList.toggle('mobile-view', isMobile);
-        if (isMobile) {
-            document.getElementById(this.sections[0]).classList.add('active');
-            this.updateActiveNav(this.sections[0]);
-        }
     }
 }
 
