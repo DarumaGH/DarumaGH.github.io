@@ -52,11 +52,15 @@ class PortfolioApp {
 
     setupScrollObserver() {
         const isMobile = window.innerWidth <= 1024;
+        const isSmallMobile = window.innerWidth <= 768;
         
         const options = {
-            threshold: isMobile ? 0.2 : 0.25,
-            rootMargin: isMobile ? '-20% 0px -20% 0px' : '-25% 0px -25% 0px'
+            threshold: [0.25, 0.5, 0.75],
+            rootMargin: isMobile ? 
+                (isSmallMobile ? '-35% 0px -35% 0px' : '-25% 0px -25% 0px') : 
+                '-20% 0px -20% 0px'
         };
+
 
         const observer = new IntersectionObserver((entries) => {
             // Only update navigation if not currently scrolling programmatically
@@ -72,8 +76,8 @@ class PortfolioApp {
 
         // Re-observe all sections
         document.querySelectorAll('.section').forEach(section => {
-            observer.unobserve(section); // Remove existing observation
-            observer.observe(section);    // Re-observe with new options
+            observer.unobserve(section);
+            observer.observe(section);
         });
     }
 
