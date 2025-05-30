@@ -51,16 +51,23 @@ class PortfolioApp {
     }
 
     setupScrollObserver() {
-        const isMobile = window.innerWidth <= 1024;
-        const isSmallMobile = window.innerWidth <= 768;
+        const windowWidth = window.innerWidth;
+        const baseThreshold = 0.2;
+        
+        // Calculate thresholds based on screen width ratio
+        const widthRatio = Math.min(windowWidth / 1920, 1); // 1920 as base desktop width
+        const thresholdMultiplier = 0.8 + (widthRatio * 0.2); // Scale between 0.8 and 1.0
+        
+        const thresholds = [
+            baseThreshold * thresholdMultiplier,
+            baseThreshold * 2 * thresholdMultiplier,
+            baseThreshold * 3.5 * thresholdMultiplier
+        ];
         
         const options = {
-            threshold: [0.25, 0.5, 0.75],
-            rootMargin: isMobile ? 
-                (isSmallMobile ? '-35% 0px -35% 0px' : '-25% 0px -25% 0px') : 
-                '-20% 0px -20% 0px'
+            threshold: thresholds,
+            rootMargin: '-20% 0px -20% 0px'
         };
-
 
         const observer = new IntersectionObserver((entries) => {
             // Only update navigation if not currently scrolling programmatically
