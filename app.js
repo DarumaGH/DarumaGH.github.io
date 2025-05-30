@@ -51,9 +51,11 @@ class PortfolioApp {
     }
 
     setupScrollObserver() {
+        const isMobile = window.innerWidth <= 1024;
+        
         const options = {
-            threshold: 0.3,
-            rootMargin: '-100px 0px -100px 0px'
+            threshold: isMobile ? 0.1 : 0.3,
+            rootMargin: isMobile ? '-20% 0px -20% 0px' : '-10% 0px -10% 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
@@ -68,8 +70,10 @@ class PortfolioApp {
             }
         }, options);
 
+        // Re-observe all sections
         document.querySelectorAll('.section').forEach(section => {
-            observer.observe(section);
+            observer.unobserve(section); // Remove existing observation
+            observer.observe(section);    // Re-observe with new options
         });
     }
 
