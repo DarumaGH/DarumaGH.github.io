@@ -73,6 +73,10 @@ body {
 }
 
 .profile-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   margin-bottom: 2rem;
   padding-bottom: 2rem;
@@ -226,6 +230,13 @@ body {
     #contact {
         min-height: calc(100vh - 80px);
     }
+
+    .profile-icon {
+      width: 70px;
+      height: 70px;
+      margin-bottom: 1rem;
+      margin-right: 0;
+    }
 }
 
 @media (max-width: 768px) {
@@ -233,12 +244,26 @@ body {
         padding: 2rem;
         margin-bottom: 2rem;
     }
+
+    .profile-icon {
+      width: 70px;
+      height: 70px;
+      margin-bottom: 1rem;
+      margin-right: 0;
+    }
 }
 
 @media (max-width: 480px) {
     .section {
         padding: 1.5rem;
         margin-bottom: 2rem;
+    }
+
+    .profile-icon {
+      width: 70px;
+      height: 70px;
+      margin-bottom: 1rem;
+      margin-right: 0;
     }
 }
 
@@ -700,6 +725,26 @@ body {
   .section-title {
     font-size: 2rem;
   }
+
+  .profile-icon {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 1rem;
+    margin-right: 0;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  
+  .profile-section {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .profile-section div {
+    margin-right: 0;
+  }
 }
 
 @media (max-width: 768px) {
@@ -731,6 +776,13 @@ body {
   .project-images {
     padding: 0 1rem 1rem;
   }
+
+  .profile-icon {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 1rem;
+    margin-right: 0;
+  }
 }
 
 @media (max-width: 480px) {
@@ -761,12 +813,19 @@ body {
   .project-images {
     padding: 0 0.75rem 0.75rem;
   }
+
+  .profile-icon {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 1rem;
+    margin-right: 0;
+  }
 }
 
 .profile-icon {
-    width: 120px;
-    height: 120px;
-    border-radius: 0;
-    margin-bottom: 1rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 90px;
+  height: 90px;
+  border-radius: 0;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
