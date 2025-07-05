@@ -637,22 +637,26 @@ body {
   
   .profile-section {
     display: flex;
+    flex-direction: row !important;
     justify-content: center;
     align-items: center;
     margin: 0;
     padding: 0;
     border: none;
+    text-align: center;
   }
-  
+
   .profile-section div {
     margin-right: 1rem;
   }
-  
+
   .name {
     font-size: 1.2rem;
     margin: 0;
+    display: flex;
+    align-items: center;
   }
-  
+
   .title {
     display: none;
   }
@@ -828,4 +832,15 @@ body {
   border-radius: 0;
   margin-bottom: 1rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .profile-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 0;
+    margin-right: 0.75rem;
+    display: inline-block;
+    vertical-align: middle;
+  }
 }
